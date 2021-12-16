@@ -202,12 +202,16 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
+
     a {
         text-decoration: none;
         color: black;
         width: 8rem;
         height: 8rem;
         line-height: 8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -246,8 +250,8 @@ textarea {
         font-size: 2.5rem;
     }
     .containerDescription {
-        flex-direction: column;
-        gap: 2rem;
+        flex-direction: column; 
+        gap: 2rem; 
         img {
             width: 80%;
         }
@@ -289,12 +293,16 @@ textarea {
         width: 3rem;
     }
     
+    .redSocial{
+        width: 100vw;
+       
+    }
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 60rem) {
-    .footerIndex,
     .footerSobremi {
         position: static;
+        
     }
 }
 /* Medium devices (landscape tablets, 768px and up) */
