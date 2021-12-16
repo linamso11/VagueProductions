@@ -88,11 +88,8 @@ textarea {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  color: white;
   list-style-type: none;
   width: 100vw; }
-  .contacto a {
-    color: white; }
 
 /******************************
 ********** SOBRE MI ***********
@@ -127,34 +124,77 @@ textarea {
 ************** Servicios ******************
 *******************************************/
 .serviciosLista {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-grow: auto;
-  align-self: auto;
-  gap: 4rem;
-  text-align: center; }
-  .serviciosLista div li img {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+  gap: 5rem;
+  margin: 5rem; }
+  .serviciosLista li {
     width: 100%;
-    height: 10rem;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    object-fit: contain; }
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; }
+    .serviciosLista li img {
+      width: 100%;
+      height: 10rem;
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+      object-fit: contain; }
+    .serviciosLista li span {
+      text-align: center;
+      width: 100%;
+      font-weight: bold; }
+    .serviciosLista li p {
+      text-align: justify; }
 
 /*****************************************
-*************** Footer *******************
+*************** FooterIndex *******************
 *****************************************/
-.c-black .contacto {
-  color: black; }
-  .c-black .contacto a {
-    color: black; }
-
-.footer {
+.footerIndex {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100vw;
   font-size: 3rem; }
+  .footerIndex .contacto {
+    color: white; }
+    .footerIndex .contacto a {
+      color: white; }
+
+.footer {
+  color: black;
+  width: 100%; }
+
+.redSocial {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .redSocial a {
+    text-decoration: none;
+    color: black;
+    width: 8rem;
+    height: 8rem;
+    line-height: 8rem; }
+
+.copy {
+  color: black;
+  text-align: center;
+  justify-content: center;
+  word-spacing: 2rem; }
+
+/*****************************************
+*************** FooterSobremi ************
+*****************************************/
+.footerSobremi {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  font-size: 3rem; }
+  .footerSobremi .contacto {
+    color: black; }
+    .footerSobremi .contacto a {
+      color: black; }
 
 /*****************************************
 ************** MEDIA QUERIES *************
@@ -216,6 +256,80 @@ textarea {
 ******NUESTROS CLIENTES*******
 *****************************/
 .clientes {
-  width: 14rem;
-  height: 14rem;
   font-size: 8rem; }
+
+/*****************************
+********TRANSICIONES**********
+*****************************/
+.imgEffects {
+  display: flex;
+  gap: 7rem; }
+  .imgEffects:hover img {
+    opacity: 1; }
+  .imgEffects img {
+    opacity: 0;
+    width: 15rem;
+    height: 10rem;
+    object-fit: cover;
+    transition: opacity 0.5s; }
+
+/*****************************
+*******ESTILOS DE BOTON******
+*****************************/
+.button {
+  --offset: 0.5rem;
+  --border-size: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  position: relative;
+  padding: 1rem 1rem;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background .8s ease; }
+  .button:hover {
+    background: rgba(100, 0, 0, 0.03); }
+  .button__horizontal, .button__vertical {
+    position: absolute;
+    top: var(--horizontal-offset, 0);
+    right: var(--vertical-offset, 0);
+    bottom: var(--horizontal-offset, 0);
+    left: var(--vertical-offset, 0);
+    transition: transform .8s ease;
+    will-change: transform; }
+    .button__horizontal::before, .button__vertical::before {
+      content: '';
+      position: absolute;
+      border: inherit; }
+  .button__horizontal {
+    --vertical-offset: calc(var(--offset) * -1);
+    border-top: var(--border-size) solid currentcolor;
+    border-bottom: var(--border-size) solid currentcolor; }
+    .button__horizontal::before {
+      top: calc(var(--vertical-offset) - var(--border-size));
+      bottom: calc(var(--vertical-offset) - var(--border-size));
+      left: calc(var(--vertical-offset) * -1);
+      right: calc(var(--vertical-offset) * -1); }
+  .button:hover .button__horizontal {
+    transform: scaleX(0); }
+  .button__vertical {
+    --horizontal-offset: calc(var(--offset) * -1);
+    border-left: var(--border-size) solid currentcolor;
+    border-right: var(--border-size) solid currentcolor; }
+    .button__vertical::before {
+      top: calc(var(--horizontal-offset) * -1);
+      bottom: calc(var(--horizontal-offset) * -1);
+      left: calc(var(--horizontal-offset) - var(--border-size));
+      right: calc(var(--horizontal-offset) - var(--border-size)); }
+  .button:hover .button__vertical {
+    transform: scaleY(0); }
