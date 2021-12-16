@@ -146,7 +146,7 @@ textarea {
 *******************************************/
 .serviciosLista {
     display: grid;
-    grid-template-columns: repeat(auto - fill, minmax(35rem, 1fr)); 
+    grid-template-columns: repeat(auto - fill, minmax(35rem, 1fr));
     gap: 5rem;
     margin: 5rem;
 
@@ -209,15 +209,13 @@ textarea {
         height: 8rem;
         line-height: 8rem;
     }
-    
 }
- 
+
 .copy {
     color: black;
     text-align: center;
     justify-content: center;
     word-spacing: 2rem;
-
 }
 
 /*****************************************
@@ -281,16 +279,23 @@ textarea {
     .contacto a {
         font-size: 1rem;
     }
+    
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 60rem) {
+@media only screen and (max-width: 60rem) {
+    .footerIndex,
+    .footerSobremi {
+        position: static;
+    }
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 76.8rem) {
+   
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 99.2rem) {
 }
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 120rem) {
 }
@@ -351,88 +356,85 @@ textarea {
     }
 }
 
-
 /*****************************
 *******ESTILOS DE BOTON******
 *****************************/
 
 .button {
-	
-	--offset: 0.5rem;
-	--border-size: 2px;
-	
-	display: flex;
+    --offset: 0.5rem;
+    --border-size: 2px;
+
+    display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
-	position: relative;
-	padding: 1rem 1rem;
-	appearance: none;
-	border: 0;
-	background: transparent;
-	color: black;
-	text-transform: uppercase;
-	letter-spacing: .25em;
-	outline: none;
-	cursor: pointer;
-	font-weight: bold;
-	border-radius: 0;
-	box-shadow: inset 0 0 0 var(--border-size) currentcolor;
-	transition: background .8s ease;
-	
-	&:hover {
-		background: rgba(100, 0, 0, .03);
-	}
-	
-	&__horizontal,
-	&__vertical {
-		position: absolute;
-		top: var(--horizontal-offset, 0);
-		right: var(--vertical-offset, 0);
-		bottom: var(--horizontal-offset, 0);
-		left: var(--vertical-offset, 0);
-		transition: transform .8s ease;
-		will-change: transform;
-		
-		&::before {
-			content: '';
-			position: absolute;
-			border: inherit;
-		}
-	}
-	
-	&__horizontal {
-		--vertical-offset: calc(var(--offset) * -1);
-		border-top: var(--border-size) solid currentcolor;
-		border-bottom: var(--border-size) solid currentcolor;
-		
-		&::before {
-			top: calc(var(--vertical-offset) - var(--border-size));
-			bottom: calc(var(--vertical-offset) - var(--border-size));
-			left: calc(var(--vertical-offset) * -1);
-			right: calc(var(--vertical-offset) * -1);
-		}
-	}
-	
-	&:hover &__horizontal {
-		transform: scaleX(0);
-	}
-	
-	&__vertical {
-		--horizontal-offset: calc(var(--offset) * -1);
-		border-left: var(--border-size) solid currentcolor;
-		border-right: var(--border-size) solid currentcolor;
-		
-		&::before {
-			top: calc(var(--horizontal-offset) * -1);
-			bottom: calc(var(--horizontal-offset) * -1);
-			left: calc(var(--horizontal-offset) - var(--border-size));
-			right: calc(var(--horizontal-offset) - var(--border-size));
-		}
-	}
-	
-	&:hover &__vertical {
-		transform: scaleY(0);
-	}
-	
+    position: relative;
+    padding: 1rem 1rem;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 0;
+    box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+    transition: background 0.8s ease;
+
+    &:hover {
+        background: rgba(100, 0, 0, 0.03);
+    }
+
+    &__horizontal,
+    &__vertical {
+        position: absolute;
+        top: var(--horizontal-offset, 0);
+        right: var(--vertical-offset, 0);
+        bottom: var(--horizontal-offset, 0);
+        left: var(--vertical-offset, 0);
+        transition: transform 0.8s ease;
+        will-change: transform;
+
+        &::before {
+            content: "";
+            position: absolute;
+            border: inherit;
+        }
+    }
+
+    &__horizontal {
+        --vertical-offset: calc(var(--offset) * -1);
+        border-top: var(--border-size) solid currentcolor;
+        border-bottom: var(--border-size) solid currentcolor;
+
+        &::before {
+            top: calc(var(--vertical-offset) - var(--border-size));
+            bottom: calc(var(--vertical-offset) - var(--border-size));
+            left: calc(var(--vertical-offset) * -1);
+            right: calc(var(--vertical-offset) * -1);
+        }
+    }
+
+    &:hover &__horizontal {
+        transform: scaleX(0);
+    }
+
+    &__vertical {
+        --horizontal-offset: calc(var(--offset) * -1);
+        border-left: var(--border-size) solid currentcolor;
+        border-right: var(--border-size) solid currentcolor;
+
+        &::before {
+            top: calc(var(--horizontal-offset) * -1);
+            bottom: calc(var(--horizontal-offset) * -1);
+            left: calc(var(--horizontal-offset) - var(--border-size));
+            right: calc(var(--horizontal-offset) - var(--border-size));
+        }
+    }
+
+    &:hover &__vertical {
+        transform: scaleY(0);
+    }
 }
